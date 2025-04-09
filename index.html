@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chakri - Government Exam Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        
+        /* High contrast colors */
+        .bg-accent {
+            background-color: #2563eb;
+        }
+        
+        .text-accent {
+            color: #2563eb;
+        }
+        
+        .hover\:bg-accent:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .border-accent {
+            border-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="flex items-center bg-blue-700 text-white px-3 py-1 rounded mr-3">
+                        <i class="fas fa-landmark mr-2"></i>
+                        <h1 class="text-xl font-bold tracking-tight">CHAKRI</h1>
+                    </div>
+                    <p class="hidden md:block text-sm text-gray-600">Government Exam Portal</p>
+                </div>
+                
+                <nav class="hidden lg:flex space-x-6">
+                    <a href="#home" class="text-blue-700 font-medium hover:text-blue-800 border-b-2 border-transparent hover:border-blue-700 pb-1">Home</a>
+                    <a href="#exams" class="text-gray11200 font-medium hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 pb-1">Exams</a>
+                    <a href="#updates" class="text-gray-700 font-medium hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 pb-1">Updates</a>
+                    <a href="#notifications" class="text-gray-700 font-medium hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 pb-1">Notifications</a>
+                    <a href="#apply" class="text-gray-700 font-medium hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 pb-1">Apply Online</a>
+                    <a href="#results" class="text-gray-700 font-medium hover:text-blue-700 border-b-2 border-transparent hover:border-blue-700 pb-1">Results</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-100" title="Search">
+                        <i class="fas fa-search text-blue-700"></i>
+                    </button>
+                    <a href="#login" class="hidden md:block bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-full font-medium transition-colors">
+                        <i class="fas fa-user mr-1"></i> Login/Register
+                    </a>
+                    <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-bars text-blue-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#home" class="block py-2 text-blue-700 font-medium border-l-4 border-blue-700 pl-3">Home</a>
+                <a href="#exams" class="block py-2 text-gray-700 hover:text-blue-700 pl-3">Exams</a>
+                <a href="#updates" class="block py-2 text-gray-700 hover:text-blue-700 pl-3">Updates</a>
+                <a href="#notifications" class="block py-2 text-gray-700 hover:text-blue-700 pl-3">Notifications</a>
+                <a href="#apply" class="block py-2 text-gray-700 hover:text-blue-700 pl-3">Apply Online</a>
+                <a href="#results" class="block py-2 text-gray-700 hover:text-blue-700 pl-3">Results</a>
+                <a href="#login" class="block py-2 text-gray-700 hover:text-blue-700 pl-3">Login/Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white py-12">
+        <div class="container mx-auto px-4 py-8 md:py-16">
+            <div class="max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Your Gateway to Government Careers</h2>
+                <p class="text-lg mb-6">Find all the latest government job notifications, exam dates, results and application forms in one place.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#exams" class="bg-white text-blue-800 hover:bg-gray-100 px-6 py-3 rounded-full font-medium transition-colors flex items-center">
+                        <i class="fas fa-book-open mr-2"></i> Browse Exams
+                    </a>
+                    <a href="#apply" class="border border-white hover:bg-blue-700 px-6 py-3 rounded-full font-medium transition-colors flex items-center">
+                        <i class="fas fa-edit mr-2"></i> Apply Online
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-4 bg-white/20"></div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="py-8 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="#upsc" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 text-center transition-colors">
+                    <div class="text-blue-700 text-3xl mb-2"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 class="font-medium text-blue-800">UPSC</h3>
+                    <p class="text-sm text-gray-600">Civil Services</p>
+                </a>
+                <a href="#ssc" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 text-center transition-colors">
+                    <div class="text-blue-700 text-3xl mb-2"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="font-medium text-blue-800">SSC</h3>
+                    <p class="text-sm text-gray-600">Staff Selection</p>
+                </a>
+                <a href="#bank" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 text-center transition-colors">
+                    <div class="text-blue-700 text-3xl mb-2"><i class="fas fa-university"></i></div>
+                    <h3 class="font-medium text-blue-800">Banking</h3>
+                    <p class="text-sm text-gray-600">IBPS, SBI</p>
+                </a>
+                <a href="#state" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 text-center transition-colors">
+                    <div class="text-blue-700 text-3xl mb-2"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3 class="font-medium text-blue-800">State Jobs</h3>
+                    <p class="text-sm text-gray-600">State PSCs</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Notifications -->
+    <section id="notifications" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-blue-800 border-l-4 border-blue-700 pl-3">Latest Notifications</h2>
+                <a href="#all-notifications" class="text-blue-700 hover:text-blue-900 font-medium flex items-center">
+                    View All <i class="fas fa-chevron-right ml-1 text-sm"></i>
+                </a>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-blue-700 text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Exam Name</th>
+                                <th class="py-3 px-4 text-left">Last Date</th>
+                                <th class="py-3 px-4 text-left">Apply Online</th>
+                                <th class="py-3 px-4 text-left">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 hover:bg-blue-50">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">UPSC Civil Services Prelims 2024</div>
+                                    <div class="text-sm text-gray-600">Union Public Service Commission</div>
+                                </td>
+                                <td class="py-3 px-4">05 March 2024</td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Apply Now</a>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Notification</a>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-blue-50">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">SSC CGL 2024</div>
+                                    <div class="text-sm text-gray-600">Staff Selection Commission</div>
+                                </td>
+                                <td class="py-3 px-4">10 April 2024</td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Apply Now</a>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Notification</a>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-blue-50">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">IBPS PO XII</div>
+                                    <div class="text-sm text-gray-600">Banking Personnel Selection</div>
+                                </td>
+                                <td class="py-3 px-4">28 February 2024</td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Apply Now</a>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Notification</a>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-blue-50">
+                                <td class="py-3 px-4">
+                                    <div class="font-medium">Railway Group D 2024</div>
+                                    <div class="text-sm text-gray-600">Indian Railways</div>
+                                </td>
+                                <td class="py-3 px-4">15 March 2024</td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Apply Now</a>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Notification</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Updates -->
+    <section id="updates" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-blue-800 border-l-4 border-blue-700 pl-3">Important Updates</h2>
+                <a href="#all-updates" class="text-blue-700 hover:text-blue-900 font-medium flex items-center">
+                    View All <i class="fas fa-chevron-right ml-1 text-sm"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="bg-blue-700 text-white px-4 py-2">
+                        <span class="font-medium">SSC</span> • <span class="text-sm">Updated: 12 Jan 2024</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">SSC CHSL 2023 Tier 1 Result Out</h3>
+                        <p class="text-gray-700 mb-4">The Staff Selection Commission has declared the result for CHSL Tier 1 examination held in August 2023.</p>
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="bg-blue-700 text-white px-4 py-2">
+                        <span class="font-medium">UPSC</span> • <span class="text-sm">Updated: 10 Jan 2024</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">UPSC CDS II 2023 Final Result</h3>
+                        <p class="text-gray-700 mb-4">Union Public Service Commission has announced the final result for Combined Defence Services Examination (II) 2023.</p>
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="bg-blue-700 text-white px-4 py-2">
+                        <span class="font-medium">IBPS</span> • <span class="text-sm">Updated: 05 Jan 2024</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">IBPS SO XIII Prelims Admit Card</h3>
+                        <p class="text-gray-700 mb-4">IBPS has released the admit cards for Specialist Officer Prelims exam scheduled for 20th January 2024.</p>
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exam Calendar -->
+    <section id="exams" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-blue-800 border-l-4 border-blue-700 pl-3 mb-8">Upcoming Exam Calendar</h2>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3">
+                    <div class="border-b md:border-b-0 md:border-r border-gray-200">
+                        <div class="bg-blue-700 text-white px-4 py-3 text-center">
+                            <h3 class="font-bold">February 2024</h3>
+                        </div>
+                        <div class="p-4">
+                            <div class="border-b border-gray-100 pb-3 mb-3">
+                                <div class="text-blue-700 font-medium">15 Feb</div>
+                                <h4 class="font-medium">IBPS PO XII Main Exam</h4>
+                                <p class="text-sm text-gray-600">Banking Personnel Selection</p>
+                            </div>
+                            <div class="border-b border-gray-100 pb-3 mb-3">
+                                <div class="text-blue-700 font-medium">18 Feb</div>
+                                <h4 class="font-medium">SSC CGL Tier II</h4>
+                                <p class="text-sm text-gray-600">Staff Selection Commission</p>
+                            </div>
+                            <div>
+                                <div class="text-blue-700 font-medium">28 Feb</div>
+                                <h4 class="font-medium">Railway Group D CBT 1</h4>
+                                <p class="text-sm text-gray-600">Indian Railways</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b md:border-b-0 md:border-r border-gray-200">
+                        <div class="bg-blue-700 text-white px-4 py-3 text-center">
+                            <h3 class="font-bold">March 2024</h3>
+                        </div>
+                        <div class="p-4">
+                            <div class="border-b border-gray-100 pb-3 mb-3">
+                                <div class="text-blue-700 font-medium">05 Mar</div>
+                                <h4 class="font-medium">UPSC Civil Services Prelims</h4>
+                                <p class="text-sm text-gray-600">Union Public Service Commission</p>
+                            </div>
+                            <div class="border-b border-gray-100 pb-3 mb-3">
+                                <div class="text-blue-700 font-medium">12 Mar</div>
+                                <h4 class="font-medium">SSC GD Constable CBT 2</h4>
+                                <p class="text-sm text-gray-600">Staff Selection Commission</p>
+                            </div>
+                            <div>
+                                <div class="text-blue-700 font-medium">20 Mar</div>
+                                <h4 class="font-medium">IBPS Clerk XIII Main</h4>
+                                <p class="text-sm text-gray-600">Banking Personnel Selection</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-blue-700 text-white px-4 py-3 text-center">
+                            <h3 class="font-bold">April 2024</h3>
+                        </div>
+                        <div class="p-4">
+                            <div class="border-b border-gray-100 pb-3 mb-3">
+                                <div class="text-blue-700 font-medium">01 Apr</div>
+                                <h4 class="font-medium">SSC CHSL Tier 1</h4>
+                                <p class="text-sm text-gray-600">Staff Selection Commission</p>
+                            </div>
+                            <div class="border-b border-gray-100 pb-3 mb-3">
+                                <div class="text-blue-700 font-medium">10 Apr</div>
+                                <h4 class="font-medium">UPSC CDS I</h4>
+                                <p class="text-sm text-gray-600">Union Public Service Commission</p>
+                            </div>
+                            <div>
+                                <div class="text-blue-700 font-medium">15 Apr</div>
+                                <h4 class="font-medium">IBPS RRB XII Prelims</h4>
+                                <p class="text-sm text-gray-600">Banking Personnel Selection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-blue-800 border-l-4 border-blue-700 pl-3">Recent Results</h2>
+                <a href="#all-results" class="text-blue-700 hover:text-blue-900 font-medium flex items-center">
+                    View All <i class="fas fa-chevron-right ml-1 text-sm"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Declared</span>
+                        <span class="text-sm text-gray-500">12 Jan 2024</span>
+                    </div>
+                    <h3 class="font-bold mb-2">SSC CHSL 2023 Tier I Result</h3>
+                    <p class="text-gray-700 mb-4">Staff Selection Commission has declared the Tier I result for Combined Higher Secondary Level Examination 2023.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Check Result</a>
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Cut Off</a>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Declared</span>
+                        <span class="text-sm text-gray-500">10 Jan 2024</span>
+                    </div>
+                    <h3 class="font-bold mb-2">UPSC CDS II 2023 Final Result</h3>
+                    <p class="text-gray-700 mb-4">Final result of Combined Defence Services Examination (II), 2023 has been announced by UPSC.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Check Result</a>
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Merit List</a>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Declared</span>
+                        <span class="text-sm text-gray-500">05 Jan 2024</span>
+                    </div>
+                    <h3 class="font-bold mb-2">IBPS Clerk XII Main Result</h3>
+                    <p class="text-gray-700 mb-4">Institute of Banking Personnel Selection has declared the final result for Clerk CRP XII.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Check Result</a>
+                        <a href="#" class="text-blue-700 hover:text-blue-900 font-medium">Allotment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apply Online Section -->
+    <section id="apply" class="py-16 bg-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Apply for Your Dream Job?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Find and apply for all government job notifications in one place. Get timely alerts and guidance for your application process.</p>
+            <a href="#registration" class="bg-white text-blue-800 hover:bg-gray-100 px-8 py-3 rounded-full font-medium inline-flex items-center transition-colors">
+                <i class="fas fa-user-plus mr-2"></i> Register Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center bg-blue-700 text-white px-3 py-1 rounded w-fit mb-4">
+                        <i class="fas fa-landmark mr-2"></i>
+                        <h3 class="text-xl font-bold tracking-tight">CHAKRI</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Comprehensive portal for all Indian government job notifications, exam updates, and application forms.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 border-b border-blue-800 pb-2">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">UPSC</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">SSC</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Banking Exams</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Railway Exams</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Teaching Jobs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 border-b border-blue-800 pb-2">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Previous Year Papers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Syllabus</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Exam Pattern</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Admit Card</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Answer Key</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 border-b border-blue-800 pb-2">Contact Us</h4>
+                    <address class="text-gray-400 not-italic">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Government Plaza, New Delhi</p>
+                        <p class="mb-2"><i class="fas fa-phone mr-2"></i> +91 9876543210</p>
+                        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> support@chakri.gov.in</p>
+                        <p><i class="fas fa-clock mr-2"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-3 md:mb-0">© 2024 CHAKRI - Government Exam Portal. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Help Button -->
+    <button class="fixed bottom-6 right-6 bg-blue-700 hover:bg-blue-800 text-white p-4 rounded-full shadow-lg transition-colors z-40">
+        <i class="fas fa-question text-xl"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Countdown timer for application deadlines
+        function updateApplicationDeadlines() {
+            const deadlines = document.querySelectorAll('.deadline-countdown');
+            
+            deadlines.forEach(deadline => {
+                const endDate = new Date(deadline.dataset.enddate).getTime();
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                
+                if (distance < 0) {
+                    deadline.innerHTML = 'Closed';
+                    deadline.classList.add('text-red-500');
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                
+                if (days > 0) {
+                    deadline.innerHTML = `${days} days left`;
+                } else {
+                    deadline.innerHTML = `${hours} hours left`;
+                    deadline.classList.add('text-red-500');
+                }
+            });
+        }
+        
+        // Initialize the deadline counters
+        updateApplicationDeadlines();
+        setInterval(updateApplicationDeadlines, 3600000); // Update every hour
+        
+        // Notification badge for updates
+        const newsUpdates = [
+            {title: "UPSC Prelims 2024 Notification", type: "new", date: "10 Jan 2024"},
+            {title: "SSC CGL 2024 Application Dates", type: "update", date: "08 Jan 2024"},
+            {title: "IBPS PO XII Interview Schedule", type: "update", date: "05 Jan 2024"}
+        ];
+        
+        const updateBadge = document.querySelector('.update-badge');
+        if (updateBadge) {
+            const recentUpdates = newsUpdates.filter(update => {
+                const updateDate = new Date(update.date);
+                const weekAgo = new Date();
+                weekAgo.setDate(weekAgo.getDate() - 7);
+                return updateDate > weekAgo;
+            });
+            
+            if (recentUpdates.length > 0) {
+                updateBadge.textContent = recentUpdates.length;
+                updateBadge.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
